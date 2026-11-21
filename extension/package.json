@@ -4,11 +4,19 @@
   "private": true,
   "scripts": {
     "build": "esbuild src/background.ts --bundle --outdir=dist && cp manifest.json dist/",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "@types/chrome": "^0.3.7",
     "esbuild": "^0.28.2",
-    "typescript": "~6.0.3"
+    "eslint": "^10.15.0",
+    "eslint-config-prettier": "^10.1.8",
+    "prettier": "^3.10.1",
+    "typescript": "~6.0.3",
+    "typescript-eslint": "^8.73.0"
   }
 }
