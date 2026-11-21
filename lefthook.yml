@@ -1,0 +1,16 @@
+pre-commit:
+  parallel: true
+  jobs:
+    - name: go
+      root: server/
+      glob: "*.go"
+      run: golangci-lint run ./...
+
+    - name: prettier
+      root: extension/
+      run: npx prettier --check --ignore-unknown {staged_files}
+
+    - name: eslint
+      root: extension/
+      glob: "*.{ts,mjs}"
+      run: npx eslint {staged_files}
